@@ -11,3 +11,16 @@ tar zxvf $FILENAME -C $ROOT_FOLDER
 cd $ROOT_FOLDER
 cd */
 unzip *.zip -d $IMAGE_FOLDER
+
+./flash-base.sh
+cd $IMAGE_FOLDER
+fastboot flash boot boot.img
+fastboot reboot-bootloader
+sleep 5
+fastboot flash system system.img
+fastboot reboot-bootloader
+sleep 5
+fastboot flash vendor vendor.img
+fastboot reboot-bootloader
+sleep 5
+fastboot reboot
