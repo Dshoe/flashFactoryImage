@@ -1,13 +1,13 @@
 #!/bin/bash
 
 FILENAME="$1"
-FOLDER="factory_image/"
-#$DIRECTORY="factory_image/"
-if [ ! -d $FOLDER ]; then
-	mkdir $FOLDER
+ROOT_FOLDER="factory_image/"
+IMAGE_FOLDER="image/"
+
+if [ ! -d $ROOT_FOLDER ]; then
+	mkdir $ROOT_FOLDER
 fi
-tar zxvf $FILENAME -C $FOLDER
-cd $FOLDER
+tar zxvf $FILENAME -C $ROOT_FOLDER
+cd $ROOT_FOLDER
 cd */
-#mkdir image/
-unzip *.zip -d image
+unzip *.zip -d $IMAGE_FOLDER
