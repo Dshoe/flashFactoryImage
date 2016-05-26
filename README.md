@@ -4,3 +4,4 @@ Bash script to flash factory images to Nexus devices without wiping user data, o
 - Flags
 -b: Flash boot.img as well
 -r: Flash recovery.img as well
+-c: Don't delete the factory_image folder after flashing

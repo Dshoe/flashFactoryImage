@@ -6,11 +6,13 @@ IMAGE_FOLDER="image/"
 
 bflag='false'
 rflag='false'
+cflag='false'
 
-while getopts 'br' flag; do
+while getopts 'brc' flag; do
 	case "${flag}" in
 		b) bflag='true' ;;
 		r) rflag='true' ;;
+		c) cflag='true' ;;
 		*) error "Unexpected option ${flag}" ;;
 	esac
 done
@@ -50,3 +52,9 @@ if [ $rflag == 'true' ]
 fi
 
 fastboot reboot
+
+if [ $cflag == 'false' ]
+	then
+		cd ../../../
+		rm -rf $ROOT_FOLDER
+fi
