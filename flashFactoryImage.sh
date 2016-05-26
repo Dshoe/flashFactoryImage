@@ -4,6 +4,17 @@ FILENAME="$1"
 ROOT_FOLDER="factory_image/"
 IMAGE_FOLDER="image/"
 
+bflag='false'
+rflag='false'
+
+while getopts 'br' flag; do
+	case "${flag}" in
+		b) bflag='true' ;;
+		r) rflag='true' ;;
+		*) error "Unexpected option ${flag}" ;;
+	esac
+done
+
 if [ ! -d $ROOT_FOLDER ]; then
 	mkdir $ROOT_FOLDER
 fi
@@ -23,4 +34,19 @@ sleep 5
 fastboot flash vendor vendor.img
 fastboot reboot-bootloader
 sleep 5
+
+if [ $bflag == 'true' ]
+	then
+		fastboot flash boot boot.img
+		fastboot reboot-bootloader
+		sleep 5
+fi
+
+if [ $rflag == 'true' ]
+	then
+		fastboot flash recovery recovery.img
+		fastboot reboot-bootloader
+		sleep 5
+fi
+
 fastboot reboot
