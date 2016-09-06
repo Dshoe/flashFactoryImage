@@ -33,9 +33,6 @@ unzip *.zip -d $IMAGE_FOLDER
 # Flash components
 ./flash-base.sh
 cd $IMAGE_FOLDER
-fastboot flash boot boot.img
-fastboot reboot-bootloader
-sleep 5
 fastboot flash system system.img
 fastboot reboot-bootloader
 sleep 5
