@@ -71,8 +71,6 @@ if [ ! $FILENAME == "" ]
 			sleep 5
 	fi
 
-	fastboot reboot
-
 	# Remove the root folder
 	if [ $CLEANFLAG == 'true' ]
 		then
