@@ -5,7 +5,6 @@ FILENAME=""
 ROOT_FOLDER="factory_image/"
 IMAGE_FOLDER="image/"
 
-BOOTIMGFLAG="false"
 RECOVERIMGFLAG="false"
 CLEANFLAG="true"
 
@@ -19,18 +18,10 @@ case $key in
     FILENAME="$2"
     shift # past argument
     ;;
-    -b|--boot)
-    BOOTIMGFLAG="true"
-    shift # past argument
-    ;;
     -r|--recovery)
     RECOVERIMGFLAG="true"
     shift # past argument
     ;;
-    -a|--all)
-  	BOOTIMGFLAG="true"
-  	RECOVERIMGFLAG="true"
-  	;;
     -dc|--dont-clean)
     CLEANFLAG="false"
     shift # past argument
@@ -66,13 +57,9 @@ if [ ! $FILENAME == "" ]
 	fastboot flash vendor vendor.img
 	fastboot reboot-bootloader
 	sleep 5
-
-	if [ $BOOTIMGFLAG == 'true' ]
-		then
-			fastboot flash boot boot.img
-			fastboot reboot-bootloader
-			sleep 5
-	fi
+	fastboot flash boot boot.img
+	fastboot reboot-bootloader
+	sleep 5
 
 	if [ $RECOVERIMGFLAG == 'true' ]
 		then
