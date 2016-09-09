@@ -78,6 +78,8 @@ if [ ! $FILENAME == "" ]
 			rm -rf $ROOT_FOLDER
 	fi
 
+  echo "Success, you may now reboot."
+
 else
 	echo "No factory image file specified."
 fi
