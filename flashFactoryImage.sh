@@ -60,6 +60,9 @@ if [ ! $FILENAME == "" ]
 	fastboot flash boot boot.img
 	fastboot reboot-bootloader
 	sleep 5
+  fastboot flash cache cache.img
+	fastboot reboot-bootloader
+	sleep 5
 
 	if [ $RECOVERIMGFLAG == 'true' ]
 		then
