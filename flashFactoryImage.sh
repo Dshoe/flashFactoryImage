@@ -79,7 +79,8 @@ if [ ! $FILENAME == "" ]
 			rm -rf $ROOT_FOLDER
 	fi
 
-  echo "Success, you may now reboot."
+  echo "Success, your device will now reboot."
+  fastboot reboot
 
 else
 	echo "No factory image file specified."
