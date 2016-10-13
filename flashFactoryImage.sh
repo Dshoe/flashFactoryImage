@@ -49,6 +49,7 @@ if [ ! $FILENAME == "" ]
 	unzip *.zip -d $IMAGE_FOLDER
 
 	# Flash components
+  adb reboot bootloader
 	./flash-base.sh
 	cd $IMAGE_FOLDER
 	fastboot flash system system.img
